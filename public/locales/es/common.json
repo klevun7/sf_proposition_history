@@ -1,0 +1,12 @@
+{
+  "title": "Medidas Electorales Históricas de la Ciudad de San Francisco",
+  "yes": "Sí",
+  "no": "No",
+  "result": "Resultado",
+  "votes": "Votos",
+  "required": "Requerido para Aprobar",
+  "outcome": "Desenlace",
+  "passed": "Aprobado 🟢",
+  "failed": "Rechazado 🔴",
+  "proposition": "Proposición"
+}
