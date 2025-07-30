@@ -1,14 +1,10 @@
-// components/I18nProvider.jsx
-'use client'; 
+'use client';
 
-import React, { useEffect } from 'react';
-import '../i18n/i18n'; 
+import '../i18n/i18n';
 export default function I18nProvider({ children }) {
-
-
-  return (
-    <>
-      {children}
-    </>
-  );
+    return (
+        <>
+            {children}
+        </>
+    );
 }
