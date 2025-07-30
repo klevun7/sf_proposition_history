@@ -1,5 +1,5 @@
-// i18n/i18n.js
-'use client'; // This can stay, but the critical part is how it's imported
+
+'use client';
 
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
@@ -25,4 +25,3 @@ if (!i18n.isInitialized) {
       },
     });
 }
-// >>>>>> IMPORTANT: NO `export default i18n;` HERE! <<<<<<
