@@ -8,15 +8,17 @@ import {
   Tooltip,
   Legend,
 } from 'chart.js';
+import { useTranslation } from 'react-i18next';
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 export default function VoteChart({ yesPercent, noPercent }) {
+  const { t } = useTranslation();
   const data = {
-    labels: ['Yes', 'No'],
+    labels: [t('yes'), t('no')],
     datasets: [
       {
-        label: 'Votes Percentage',
+        label: t('votes'),
         data: [parseFloat(yesPercent), parseFloat(noPercent)],
         backgroundColor: ['#28a745', '#dc3545'], 
         borderWidth: 1,
