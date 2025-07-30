@@ -1,5 +1,5 @@
 
-# City of San Francisco Historic Ballot Measures Explorer
+# City of San Francisco Historic Ballot Measures Explorer 🌉
 
 This project provides an interactive web application to explore historic ballot measures and propositions within the City of San Francisco. It allows users to view detailed information about each measure, visualize voting results with dynamic charts, and access all content in multiple languages for enhanced accessibility.
 
