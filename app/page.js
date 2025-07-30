@@ -2,19 +2,24 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import VoteChart from '@/components/VoteChart/VoteChart';
+import LanguageSelector from '@/components/LanguageSelector/LanguageSelector'; 
+import { useTranslation } from 'react-i18next'; 
 
 export default function Home() {
   const [propositions, setPropositions] = useState([]);
+  const { t, i18n } = useTranslation();
 
   useEffect(() => {
-    axios.get("http://localhost/php-backend/api/getPropositions.php")
+    const currentLang = i18n.language;
+    axios.get(`http://localhost/php-backend/api/getPropositions.php?lang=${currentLang}`)
       .then(res => setPropositions(res.data))
       .catch(err => console.error(err));
-  }, []);
+  }, [i18n.language]);
 
   return (
     <div className="container mt-4">
-      <h1 className="mb-4">City of San Francisco Historic Ballot Measures 🌉</h1>
+      <LanguageSelector />
+      <h2 className="mb-4">{t('title')} [2024] 🌉</h2>
 
       {propositions.map((p) => {
         const voteYes = parseInt(p.vote_yes);
@@ -34,17 +39,16 @@ export default function Home() {
           >
             <div className="card-body">
               <h5 className="card-title">
-                Proposition: {p.prop} [{p.name}] ({2024})
+                 {t('proposition')}: {p.prop} [{p.name}] ({2024})
               </h5>
               <p className="card-text">{p.description}</p>
               <p>
-                <strong>Result:</strong> Yes: {yesPercent}% — No: {noPercent}%<br />
-                <strong>Votes:</strong> Yes: {voteYes.toLocaleString()} &nbsp;
-                No: {voteNo.toLocaleString()}<br />
-                <strong>Required to Pass:</strong> {requiredPercent}%<br />
-                <strong>Outcome:</strong>{" "}
+                <strong>{t('result')}:</strong> <strong className='text-success'>{t('yes')}:</strong> {yesPercent}% — <strong className='text-danger'>{t('no')}:</strong> {noPercent}%<br />
+                <strong>{t('votes')}:</strong> <strong className='text-success'>{t('yes')}:</strong> {voteYes.toLocaleString()} <strong className='text-danger'>{t('no')}:</strong> {voteNo.toLocaleString()}<br />
+                <strong>{t('required')}:</strong> {requiredPercent}%<br />
+                <strong>{t('outcome')}:</strong>{" "}
                 <span className={`fw-bold text-${pass ? 'success' : 'danger'}`}>
-                  {pass ? 'Passed 🟢' : 'Failed 🔴'}
+                  {pass ? t('passed') : t('failed')}
                 </span><br />
               </p>
             </div>

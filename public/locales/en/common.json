@@ -1,0 +1,12 @@
+{
+  "title": "City of San Francisco Historic Ballot Measures",
+  "yes": "Yes",
+  "no": "No",
+  "result": "Result",
+  "votes": "Votes",
+  "required": "Required to Pass",
+  "outcome": "Outcome",
+  "passed": "Passed 🟢",
+  "failed": "Failed 🔴",
+  "proposition": "Proposition"
+}
