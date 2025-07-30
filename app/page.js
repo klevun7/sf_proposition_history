@@ -1,6 +1,7 @@
 'use client';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import VoteChart from '@/components/VoteChart/VoteChart';
 
 export default function Home() {
   const [propositions, setPropositions] = useState([]);
@@ -13,7 +14,7 @@ export default function Home() {
 
   return (
     <div className="container mt-4">
-      <h1 className="mb-4">City of San Francisco Historic Ballot Measures</h1>
+      <h1 className="mb-4">City of San Francisco Historic Ballot Measures 🌉</h1>
 
       {propositions.map((p) => {
         const voteYes = parseInt(p.vote_yes);
@@ -47,6 +48,7 @@ export default function Home() {
                 </span><br />
               </p>
             </div>
+            <VoteChart yesPercent={yesPercent} noPercent={noPercent} />
           </div>
         );
       })}
